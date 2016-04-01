@@ -63,7 +63,7 @@ void Marquage::ajuster(int size) {
 std::ostream &operator<<(std::ostream &str, const Marquage &right) {
     if (!right.marqueurs.empty()) {
         str << "(" << right.places << ") ";
-        std::copy(right.marqueurs.begin(), right.marqueurs.end(), std::ostream_iterator<int>(str, ", "));
+        std::copy(right.marqueurs.begin(), right.marqueurs.end(), std::ostream_iterator<int>(str, " "));
     }
     return str;
 }
