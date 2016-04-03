@@ -10,16 +10,20 @@
 #include "Marquage.h"
 #include "Matrice.h"
 
-class Validation{
+class Validation {
 
-public:Validation();
-    void valider(const Marquage &marquage,const Matrice & entree);
-    Marquage marquer(const Matrice & matrice);
-    friend std::ostream & operator<<(std::ostream & str, const Validation & right);
+public:
+    Validation();
+
+    void valider(const Marquage &marquage, const Matrice &entree);
+
+    Marquage marquer(const Matrice &matrice);
+
+    friend std::ostream &operator<<(std::ostream &str, const Validation &right);
 
 protected:
 
-    std::vector<bool> transitions;
+    std::vector<bool> validation;
 
 };
 

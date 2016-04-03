@@ -4,6 +4,7 @@
 
 #ifndef PETRINET_MATRICE_H
 #define PETRINET_MATRICE_H
+
 #include <stdexcept>
 #include <iterator>
 #include <vector>
@@ -16,9 +17,13 @@ public:
 
     Matrice();
 
-    inline const int get_places() const;
+    inline const int get_places() const {
+        return places;
+    }
 
-    inline const int get_transitions() const;
+    inline const int get_transitions() const {
+        return transitions;
+    }
 
     void ajuster(int place, int transitions);
 
@@ -32,6 +37,7 @@ public:
 
 protected:
     int clef(int place, int transition) const;
+
     std::vector<int> arcs;
     int places;
     int transitions;

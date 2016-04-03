@@ -13,9 +13,6 @@ Marquage::Marquage() {
 
 };
 
-const int Marquage::get_places() const {
-    return marqueurs.size();
-}
 
 bool Marquage::operator==(const Marquage &right) const {
     if (places == right.places) {
@@ -60,12 +57,13 @@ void Marquage::ajuster(int size) {
 }
 
 
-std::ostream &operator<<(std::ostream &str, const Marquage &right) {
-    if (!right.marqueurs.empty()) {
-        str << "(" << right.places << ") ";
-        std::copy(right.marqueurs.begin(), right.marqueurs.end(), std::ostream_iterator<int>(str, " "));
+std::ostream &operator<<(std::ostream &stream, const Marquage &right) {
+    if (!right.marqueurs.empty())
+    {
+        stream << "(" << right.places << ") ";
+        std::copy(right.marqueurs.begin(), right.marqueurs.end(), std::ostream_iterator<int>(stream, " "));
     }
-    return str;
+    return stream;
 }
 
 

@@ -18,7 +18,9 @@ class Marquage {
 public:
     Marquage();
 
-    inline const int get_places() const;
+    inline const int get_places() const {
+        return marqueurs.size();
+    }
 
     void ajuster(int places);
 

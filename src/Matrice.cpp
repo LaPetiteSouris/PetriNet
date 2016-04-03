@@ -10,15 +10,6 @@ Matrice::Matrice() {
     arcs.resize(places * transitions, 0);
 }
 
-const int Matrice::get_places() const {
-    return places;
-}
-
-const int Matrice::get_transitions() const {
-    return transitions;
-}
-
-
 int Matrice::operator()(int place, int transition) const {
     return arcs.at(clef(place, transition));
 }
@@ -32,7 +23,7 @@ int Matrice::clef(int place, int transition) const {
         throw std::invalid_argument("place value exceeds total places available");
     }
     if (transition >= transitions) {
-        throw std::invalid_argument("transition value exceeds total transitions available");
+        throw std::invalid_argument("transition value exceeds total validation available");
     }
     return transition + place * transitions;
 }
