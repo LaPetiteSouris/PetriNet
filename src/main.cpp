@@ -3,6 +3,7 @@
 #include "../include/Marquage.h"
 #include "../include/Matrice.h"
 #include "../include/Validation.h"
+#include "../include/Reseau.h"
 
 using namespace std;
 
@@ -61,6 +62,25 @@ int main() {/*
 // ==> m0 = (5) 2 0 0 2 0
 // ==> vx = (4) 1 0 0 0
     m0 = m0 - vx.marquer(entree);
+
+
+    Reseau rx;
+    std::stringstream ss4;
+    ss4 << "(5 4) 1 0 0 0   0 1 0 0   0 0 1 0  0 1 0 0    0 0 0 2 ";
+    ss4 << "(5 4) 0 0 1 0   1 0 0 0   0 1 0 0    0 0 0 2  0 1 0 0 ";
+    ss4 << "(5) 2 0 0 2 0 ";
+
+    ss4 >> rx;
+    cout << rx;
+    cout << rx.get_marquage()<<endl;
+    rx.iterer();
+    cout << rx.get_marquage()<<endl;
+    rx.iterer();
+    cout << rx.get_marquage()<<endl;
+    rx.iterer();
+    cout << rx.get_marquage()<<endl;
+    rx.iterer();
+    cout << rx.get_marquage()<<endl;
 
     return 0;
 }
