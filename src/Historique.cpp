@@ -23,6 +23,13 @@ void Historique::lancer(int limite) {
 }
 
 std::ostream &operator<<(std::ostream &stream, const Historique &right) {
-    std::copy(right.marquages.begin(), right.marquages.end(), std::ostream_iterator<Marquage>(stream, " "));
+    //std::copy(right.marquages.begin(), right.marquages.end(), std::ostream_iterator<Marquage>(stream, " "));
+    /* for (std::vector<Marquage>::const_iterator i = right.marquages.begin(); i != right.marquages.end(); ++i)
+         stream << *i << ' ' << endl;
+ */
+    for (int i = 0; i < right.marquages.size(); i++) {
+        stream << i << ". " << right.marquages.at(i) << endl;
+    }
+
     return stream;
 }

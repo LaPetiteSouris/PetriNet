@@ -58,8 +58,7 @@ void Marquage::ajuster(int size) {
 
 
 std::ostream &operator<<(std::ostream &stream, const Marquage &right) {
-    if (!right.marqueurs.empty())
-    {
+    if (!right.marqueurs.empty()) {
         stream << "(" << right.places << ") ";
         std::copy(right.marqueurs.begin(), right.marqueurs.end(), std::ostream_iterator<int>(stream, " "));
     }
@@ -81,36 +80,46 @@ std::istream &operator>>(std::istream &str, Marquage &right) {
 
 
 Marquage Marquage::operator+(const Marquage &n) const {
-    Marquage result;
-    if (this->places == n.places) {
-        result.ajuster(this->places);
-        for (int i = 0; i < this->places; i++) {
-            result(i) = ((*this)(i) + n(i));
-        }
-        return result;
-
+    Marquage result, m1, m2;
+    int place_max = n.get_places();
+    if (this->get_places() > place_max) {
+        place_max = this->get_places();
     }
-    else {
-        cout << "Vector dimenstion mismatched" << endl;
+    //Cloning
+    m1.marqueurs = this->marqueurs;
+    m2.marqueurs = n.marqueurs;
+    //Reshaping
+    m1.ajuster(place_max);
+    m2.ajuster(place_max);
+    result.ajuster(place_max);
+
+
+    for (int i = 0; i < place_max; i++) {
+        result(i) = m1(i) + m2(i);
     }
-
-
+    return result;
 }
 
 
 Marquage Marquage::operator-(const Marquage &n) const {
-    Marquage result;
-    if (this->places == n.places) {
-        result.ajuster(this->places);
-        for (int i = 0; i < this->places; i++) {
-            result(i) = ((*this)(i) - n(i));
-        }
-        return result;
+    Marquage result, m1, m2;
+    int place_max = n.get_places();
+    if (this->get_places() > place_max) {
+        place_max = this->get_places();
+    }
+    //Cloning
+    m1.marqueurs = this->marqueurs;
+    m2.marqueurs = n.marqueurs;
+    //Reshaping
+    m1.ajuster(place_max);
+    m2.ajuster(place_max);
+    result.ajuster(place_max);
+    //Cloning
 
+    for (int i = 0; i < place_max; i++) {
+        result(i) = m1(i) - m2(i);
     }
-    else {
-        cout << "Vector dimenstion mismatched" << endl;
-    }
+    return result;
 
 }
 
