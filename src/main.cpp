@@ -4,6 +4,7 @@
 #include "../include/Matrice.h"
 #include "../include/Validation.h"
 #include "../include/Reseau.h"
+#include "../include/Historique.h"
 
 using namespace std;
 
@@ -45,7 +46,7 @@ int main() {/*
         cout << e.what() << endl;
     }
 */
-
+/*
     Validation vx;
 // ==> vx = (0)
     std::stringstream ss3;
@@ -81,6 +82,30 @@ int main() {/*
     cout << rx.get_marquage()<<endl;
     rx.iterer();
     cout << rx.get_marquage()<<endl;
+*/Historique hx;
+    try {
 
+        hx.lancer(20);
+    }
+    catch (const char *err) {
+        cout << err << endl;
+    }
+
+
+    //hx.lancer(20);
+// ==> erreur = pas de reseau
+    Reseau ry;
+    std::stringstream ss5;
+    ss5 << "(5 4) 1 0 0 0   0 1 0 0   0 0 1 0  0 1 0 0    0 0 0 2 ";
+    ss5 << "(5 4) 0 0 1 0   1 0 0 0   0 1 0 0    0 0 0 2  0 1 0 0 ";
+    ss5 << "(5) 2 0 0 2 0 ";
+    ss5 >> ry;
+    cout << ry;
+    hx.set_reseau(&ry);
+    hx.lancer(20);
+    cout << hx << endl;
+    /*
+    hx.set_reseau(&ry);
+    hx.lancer(20);*/
     return 0;
 }
