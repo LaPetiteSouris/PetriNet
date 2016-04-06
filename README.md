@@ -14,6 +14,7 @@ Cmake >=2.8. <br/>
 # Auteur
 
 M.Hoang Son-Tung.<br/>
-Email: sontunghoang@gmail.com
+M.Mustafa Drissi <br/>
+Email: sontunghoang@gmail.com et stf.drissi@gmail.com 
 
 
